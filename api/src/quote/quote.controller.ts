@@ -7,6 +7,7 @@ import {
   NotFoundException,
   PreconditionFailedException,
   InternalServerErrorException,
+  UseGuards,
 } from '@nestjs/common';
 import { QuoteService } from './quote.service';
 import { CreateQuoteDto } from './dto/create-quote.dto';
@@ -15,7 +16,9 @@ import { RateResponse } from 'src/integrations/crypto-mkt/dto/RateResponse.dto';
 import { Quote } from '@prisma/client';
 import { QuoteEntity } from './entities/quote.entity';
 import { QuoteFormatter } from './utils/QuoteFormatter';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller('quote')
 export class QuoteController {
   constructor(
