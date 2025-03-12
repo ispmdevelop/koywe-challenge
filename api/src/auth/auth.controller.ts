@@ -7,7 +7,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
 import { LoginDto, SignUpDto } from './dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
