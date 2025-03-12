@@ -1,13 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { CreateQuoteDto } from './dto/create-quote.dto';
+import { QuoteEntity } from './entities/quote.entity';
+import { DBService } from 'src/db/db.service';
 
 @Injectable()
 export class QuoteService {
-  create(createQuoteDto: CreateQuoteDto) {
-    return 'This action adds a new quote';
+  constructor(private readonly dbService: DBService) {}
+
+  create(quote: QuoteEntity) {
+    const quoteCreated = this.dbService.quote.create({
+      data: quote,
+    });
+    return quoteCreated;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} quote`;
+  findOne(id: string) {
+    return this.dbService.quote.findUnique({
+      where: { id: id },
+    });
   }
 }
