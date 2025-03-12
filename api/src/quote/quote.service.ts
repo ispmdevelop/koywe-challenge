@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { QuoteEntity } from './entities/quote.entity';
-import { DBService } from 'src/db/db.service';
+import { DBService } from '../db/db.service';
 
 @Injectable()
 export class QuoteService {

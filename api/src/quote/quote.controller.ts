@@ -17,14 +17,16 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { Quote } from '@prisma/client';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { CryptoMktService } from 'src/integrations/crypto-mkt/crypto-mkt.service';
-import { RateResponse } from 'src/integrations/crypto-mkt/dto/RateResponse.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { CryptoMktService } from '../integrations/crypto-mkt/crypto-mkt.service';
+import { RateResponse } from '../integrations/crypto-mkt/dto/RateResponse.dto';
 import { CreateQuoteDto } from './dto/create-quote.dto';
 import { QuoteEntity } from './entities/quote.entity';
 import { QuoteService } from './quote.service';
 import { QuoteFormattedResponse } from './responses/quote-formatted.response';
 import { QuoteFormatter } from './utils/QuoteFormatter';
+
+export const EXPIRED_TIME_IN_MS = 1000 * 60 * 5;
 
 @ApiTags('Quote')
 @UseGuards(JwtAuthGuard)
@@ -71,15 +73,13 @@ export class QuoteController {
 
     const convertedAmount = amount * parseFloat(rate.price);
 
-    const fiveMinsInMs = 1000 * 60 * 5;
-
     const quoteEntity: QuoteEntity = {
       from,
       to,
       amount: amount,
       convertedAmount,
       createdAt: new Date().toISOString(),
-      expiresAt: new Date(Date.now() + fiveMinsInMs).toISOString(),
+      expiresAt: new Date(Date.now() + EXPIRED_TIME_IN_MS).toISOString(),
       rate: parseFloat(rate.price),
     };
 

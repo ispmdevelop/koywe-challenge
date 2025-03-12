@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../user/user.service';
 import { User } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
@@ -36,7 +36,6 @@ export class AuthService {
   }
 
   async signUp(signUpDto: SignUpDto) {
-    console.log({ signUpDto });
     const newUser = {
       email: signUpDto.email,
       password: bcrypt.hashSync(signUpDto.password, AuthConfig.bcryptSalt),

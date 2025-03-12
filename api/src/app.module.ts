@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { IntegrationsModule } from './integrations/integrations.module';
 import { DBModule } from './db/db.module';
 import { ConfigModule } from '@nestjs/config';
+import { TestController } from './test/test.controller';
 
 @Module({
   imports: [
@@ -16,6 +17,6 @@ import { ConfigModule } from '@nestjs/config';
     UserModule,
     IntegrationsModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, TestController],
 })
 export class AppModule {}
