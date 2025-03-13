@@ -2,10 +2,11 @@
 
 ## 📚 Como Correr el Proyecto
 
-- En la raiz del repositorio se encuentra un archivo .env.example, copia el contenido de este archivo y crea un archivo .env en la raiz de este repositorio con el contenido copiado (No es necesario cambiarlo para correr el proyecto localmente).
+- Ubica en la raiz del repositorio el archivo .env.example
+- Copia el contenido de este archivo y crea un archivo .env en la raiz de este repositorio con el contenido copiado (No es necesario cambiar ninguna variable de entorno para correr el proyecto localmente).
 - Recuerda el .env creado tiene que estar al mismo nivel que el .env.example y que de los folders ui y api
-- Inicia tu servicio de Docker, Si tienes mac o windows docker desktop, si tienes linux revisa que el servicio este activo
-- Ejecuta `docker compose up`, Si estas en linux puede ser que necesitas correrlo como permisos de administrador `sudo docker compose up`
+- Inicia tu servicio de Docker, Si tienes mac o windows "docker desktop", si tienes linux revisa que el servicio este activo en tu linea de comandos con `sudo systemctl status docker`
+- En la raiz del repositorio ejecuta: `docker compose up`, Si estas en linux puede ser que necesitas correrlo con permisos de administrador `sudo docker compose up`
 - Esto levantara los siguientes servicios en tu computadora local:
   - API en el puerto 3000 (localhost:3000)
   - Base de datos en el puerto 5432, (localhost:5432)
@@ -36,8 +37,12 @@
 
 ## 🛠 Backend Testing
 
-- Se implementarion pruebas unitarias en los controlladores donde esta concentrada la logica de negocio
-- Se pueden ejecutar en el proyecto de api (./api) con el siguiente commando `npm run test`
+- Se implementaron pruebas unitarias en los controlladores donde esta concentrada la logica de negocio
+- Se pueden ejecutar las pruebas unitarios son los siguientes pasos:
+  - Ve al proyecto de api `cd api`
+  - Instala las dependencias si todavia no lo has hecho `npm install --force` (El force es por que el swagger server tiene unos conflictos con la nomenclatura de las versiones de los peer dependencies de las librarias de Nestjs)
+  - copia el contenido del archivo ./api/.env.example en un archivo .env en la raiz del proyecto api
+  - Corre las pruebas con el siguiente commando `npm run test`
 
 ---
 
