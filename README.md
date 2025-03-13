@@ -22,6 +22,7 @@
 - DB_NAME= (Nombre de la BD que se creara en el docker compose)
 - JWT_SECRET= (Secreto para firmar los tokens de autenticacion)
 - BCRYPT_SALT= (Numero de saltos para encriptar las contraseñas)
+- API_HOST=(Utilizada en el proyecto de UI para direccionar las request http hacia el backend)
 
 ---
 
@@ -61,4 +62,3 @@
 - ChatGPT Online
   - Se utilizo como herramienta para generar docker files
   - Se utilizo para consultar "documentacion" de librerias utilizadas
-
