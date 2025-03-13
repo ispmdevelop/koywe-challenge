@@ -48,7 +48,7 @@
 
 ## Comentarios acerca del cambio de estructura de proyecto y eleccion de la Base de datos
 
-- Cambie la estructura del proyecto a una un poco mas cercana a la mostrada por la documentacion de nestjs donde cada module es separado por funcionalidad o recurso
+- Cambie la estructura del proyecto a una un poco mas cercana a la mostrada por la documentacion de nestjs donde cada modulo esta separado por funcionalidad o recurso
 - utilize prisma y postgresql como base de datos ya que es una herramienta que me gusta mucho y se me hace facil de utilizar
 
 ---
@@ -57,8 +57,8 @@
 
 - Se utilizaron las siguientes herramientas de IA
 - Github copilot
-  - Se utilizo para rellenar algunas interfaces o tipados o implementaciones basicas como un LSP mejorado
+  - Se utilizo para rellenar algunas interfaces, types o implementaciones basicas como un LSP mejorado
 - ChatGPT Online
   - Se utilizo como herramienta para generar docker files
-  - Se utilizo como para consultar como "documentacion" centralizada
+  - Se utilizo para consultar "documentacion" de librerias utilizadas
 
