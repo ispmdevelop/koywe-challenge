@@ -29,6 +29,7 @@ export function RetrieveQuoteForm() {
       return router.replace(res.redirect);
     }
     if (res.error) {
+      setData(null);
       return setError(res.error);
     }
     setData(res.data);
@@ -79,7 +80,7 @@ export function RetrieveQuoteForm() {
         {data && (
           <>
             <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-              Quote Created
+              Quote Retrieved by id
             </h2>
             <QuoteItem data={data} />
           </>

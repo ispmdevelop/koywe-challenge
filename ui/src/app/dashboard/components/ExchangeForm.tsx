@@ -31,6 +31,7 @@ export function ExchangeForm() {
       return router.replace(res.redirect);
     }
     if (res.error) {
+      setData(null);
       return setError(res.error);
     }
     setData(res.data);
